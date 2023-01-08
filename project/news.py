@@ -10,10 +10,6 @@ browser = webdriver.Chrome()
 browser.maximize_window() # 창 최대화
 #browser.set_window_size(400,600)
 
-category = ['음식료품', '섬유의복', '종이목재', '화학', '의약품', '비금속광물', '철강금속', '기계',
-       '전기전자', '의료정밀', '운수장비', '유통업', '전기가스업', '건설업', '운수창고', '통신업', '금융업',
-       '은행', '증권', '보험', '서비스업']
-
 # 1. 페이지 이동
 url = 'https://www.google.com/'
 browser.get(url)
