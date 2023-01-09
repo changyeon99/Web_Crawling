@@ -5,12 +5,13 @@ import pandas as pd
 from selenium import webdriver
 import time
 from selenium.webdriver.common.by import By
+import urllib.request
 
 browser = webdriver.Chrome()
 browser.maximize_window() # 창 최대화
 #browser.set_window_size(400,600)
 
-# 1. 페이지 이동
+# 1. 페이지 이동    
 url = 'https://www.google.com/'
 browser.get(url)
 time.sleep(0.5)
@@ -23,8 +24,8 @@ element.submit()
 time.sleep(0.5)
 
 # 3. 뉴스 항목 클릭 ( 뉴스 위치는 다르기 때문에 xpath 안됨)
-news = browser.find_element(By.LINK_TEXT, "뉴스")
-news.click()
+news_tool = browser.find_element(By.LINK_TEXT, "뉴스")
+news_tool.click()
 time.sleep(1)
 
 # 4. 도구 항목 클릭
@@ -52,8 +53,21 @@ search = browser.find_element(By.XPATH, '//*[@id="T3kYXe"]/g-button')
 search.click()
 time.sleep(1)
 
-# 
+# 기사 클릭(for문 돌릴때는 elemnents 써서 리스트)
+news = browser.find_elements(By.CLASS_NAME, 'SoaBEf')
+news[0].click()
+time.sleep(1)
+browser.back() # 뒤로가기
+time.sleep(1)
 
+news = browser.find_elements(By.CLASS_NAME, 'SoaBEf')
+news[1].click()
+time.sleep(1)
+browser.back() # 뒤로가기
+time.sleep(1)
+
+# 기사 본문 스크립
+#news_source = 
 
 
 browser.quit()
